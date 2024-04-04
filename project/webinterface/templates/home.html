@@ -1,0 +1,28 @@
+<h1>BMI Calculator</h1>
+
+<p>Enter height in feet/in, weight in lbs:</p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+
+{% if height_result is not None %}
+    <h2>Your height in inches is: {{ height_result }}</h2>
+{% endif %}
+
+{% if height_result_meters is not None %}
+    <h2>Your height in meters is: {{ height_result_meters }}</h2>
+{% endif %}
+
+{% if weight_result is not None %}
+    <h2>Your weight in kilograms is: {{ weight_result }}</h2>
+{% endif %}
+
+{% if weight_result is not None %}
+    <h2>BMI: {{ bmi_result }}</h2>
+{% endif %}
+
+{% if bmi_label is not None %}
+    <h2>{{ bmi_label }}</h2>
+{% endif %}
